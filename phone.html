@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../icofont/icofont/icofont.min.css">
+    <style>
+        #bigcont {
+            width: 350px;
+            height: 450px;
+            background-color: rgb(46, 45, 45);
+            border: 1px solid grey;
+            border-radius: 12px;
+        }
+
+        .icon {
+            width: 315px;
+            height: 400px;
+            border: 1px solid grey;
+            background: linear-gradient(rgb(34, 123, 46), rgb(96, 120, 211));
+            border-radius: 10px;
+            margin-left: 13px;
+        }
+
+        .icons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 320px;
+        }
+
+        button {
+            width: 50px;
+            height: 30px;
+            background: none;
+            outline: none;
+            border: none;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            margin-top: 10px;
+            margin-left: 1px;
+        }
+
+        .icofont-settings,
+        .icofont-whatsapp,
+        .icofont-envelope,
+        .icofont-camera {
+            width: 50px;
+            height: 30px;
+        }
+
+        .circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+            display: flex;
+            margin-right: 50px;
+            background-color: white;
+        }
+
+        /* #container{
+            position: absolute;
+            top: 100px;
+        } */
+        #phonecall {
+            position: relative;
+
+        }
+
+        #container {
+            position: absolute;
+            top: 70px;
+            width: 250px;
+            height: 300px;
+            border-radius: 10px;
+            /* background: linear-gradient(rgb(34,123,46), rgb(96, 120,211)); */
+            color: #fff;
+            text-align: center;
+        }
+
+        #container button {
+            width: 200px;
+            height: 40px;
+            background-color: peru;
+            outline: none;
+            border-radius: 5px;
+            border: none;
+            color: #fff;
+        }
+
+        select {
+            width: fit-content;
+            height: 40px;
+            background-color: cadetblue;
+            border-radius: 7px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 250px;
+            height: 40px;
+            background-color: darkturquoise;
+            border-radius: 7px;
+            outline: none;
+            color: #fff;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div></div>
+        <div id="bigcont">
+            <nav>
+                <div class="time">
+                    <span>7:51pm
+                        <i class="icofont-ui-alarm"></i>
+                        <i class="icofont-notification"></i>
+                        <i class="icofont-whatsapp"></i>
+                        <i class="icofont-email"></i>
+                    </span>
+                </div>
+                <div class="circle"></div>
+                <div class="wifi">
+                    <i class="icofont-bluetooth"></i>
+                    <i class="icofont-wifi"></i>
+                    <i class="icofont-wifi"></i>
+                    <i class="icofont-battery-full"></i>
+                </div>
+            </nav>
+            <section class="icon">
+                <p id="show()"></p>
+                <div class="icons">
+                    <div id="bigcall">
+                        <div id="phonecall">
+                            <button onclick="call()" id="pcall">
+                                <i class="icofont-ui-call"></i>
+                            </button>
+                        </div>
+                        <div id="container">
+                            <select name="" id="network">
+                                <option value="empty">Choose Your Network Provider</option>
+                                <option value="MTN">MTN</option>
+                                <option value="GLO">GLO</option>
+                                <option value="AIRTEL">AIRTEL</option>
+                                <option value="9MOBILE">9MOBILE</option>
+                            </select><br><br>
+                            <select name="" id="amount">
+                                <option value="empty1">Airtime Amount</option>
+                                <option value="100">100</option>
+                                <option value="200">200</option>
+                                <option value="500">500</option>
+                                <option value="1000">1000</option>
+                            </select>
+                            <p id="result"></p>
+                            <button onclick="generate()">Generate Card Pin</button> <br>
+                            <h1>LOAD AIRTIME</h1>
+                            <input type="text" id="pin">
+                            <button onclick="load()">RECHARGE</button>
+                            <p id="result1"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="message">
+                    <button onclick="message()" id="message">
+                        <i class="icofont-ui-message"></i>
+                        <!-- <i class="icofont-photobucket"></i> -->
+                    </button>
+                </div>
+                <div class="video" id="cam-screen">
+                    <video id="video" autoplay src=""></video>
+                    <canvas id="canvas"></canvas>
+                    <button onclick="takepix()" id="video">
+                        <i class="icofont-camera"></i>
+                        <i class="icofont-home"></i>
+
+                    </button>
+                </div>
+                <div class="setting">
+                    <button id="setting">
+                        <i class="icofont-settings"></i>
+                    </button>
+                </div>
+                <img src="" alt="">
+        </div>
+        </section>
+        </div>
+    </main>
+</body>
+
+</html>
+
+<script>
+    // let show = document.getElementById("show")
+    let network = document.getElementById("network")
+    let amount = document.getElementById("amount")
+    let show = document.getElementById("result")
+    let show1 = document.getElementById("result1")
+    let input1 = document.getElementById("pin")
+    let cardpin = Math.floor(Math.random() * 1000000000000000)
+
+    document.getElementById("container").style.display = "none"
+    function call() {
+        document.getElementById("container").style.display = "block"
+        document.getElementsById("phonecall").style.display = "none"
+
+    }
+
+    function generate() {
+        if (network.value === "empty" && amount.value === "empty1") {
+            alert("Select Your Network Provider and Airtime Amount")
+        } else if (amount.value === "empty1") {
+            alert("Select Airtime Amount")
+        } else if (network.value === "empty") {
+            alert("Select Your Network Provider")
+
+        } else {
+            show.innerHTML = cardpin;
+            console.log(cardpin);
+        }
+    }
+
+    function load() {
+        if (network.value === "GLO" && input1.value.startsWith("*123*") && input1.value.includes(cardpin) && input1.value.endsWith("#")) {
+            alert("You have successfully recharge" + " " + "#" + amount.value + " " + network.value)
+        }
+        else if (network.value === "MTN" && input1.value.startsWith("*555*") && input1.value.includes(cardpin) && input1.value.endsWith("#")) {
+            alert("You have successfully recharge" + " " + "#" + amount.value + " " + network.value)
+        }
+        else if (network.value === "AIRTEL" && input1.value.startsWith("*126*") && input1.value.includes(cardpin) && input1.value.endsWith("#")) {
+            alert("You have successfully recharge" + " " + "#" + amount.value + " " + network.value)
+        }
+        else if (network.value === "9MOBILE" && input1.value.startsWith("*222*") && input1.value.includes(cardpin) && input1.value.endsWith("#")) {
+            alert("You have successfully recharge" + " " + "#" + amount.value + " " + network.value)
+        } else {
+            alert("The recharge card is invalid")
+        }
+    }
+
+    let cam_screen = document.getElementById("cam_screen");
+    let phframe = document.getElementById("phframe");
+    let iccon = document.getElementById("iccon");
+    let video = document.getElementById("video");
+    let canvas = document.getElementById("canvas")
+    cam_screen.style.display = "none";
+
+    async function startCam() {
+        iccon.style.display = "none"
+        cam_screen.style.display = "block"
+        let thepix = await navigator.mediaDevices.getUserMedia({ audio: false, video: true })
+        video.srcObject = thepix
+    }
+
+    function takepix() {
+        canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
+        let img_link = canvas.toDataURL('image/jpg');
+        console.log(img_link);
+    }
+</script>

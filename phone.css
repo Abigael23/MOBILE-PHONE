@@ -6,6 +6,7 @@ main {
 }
 
 #bigcont {
+    position: relative;
     width: 342px;
     height: 480px;
     background-color: rgb(46, 45, 45);
@@ -68,8 +69,8 @@ nav {
 #container {
     position: absolute;
     display: none;
-    top: 119px;
-    left: 167px;
+    top: 30px;
+    right: 6px;
     width: 330px;
     height: 408px;
     border-top-left-radius: 10px;
@@ -133,10 +134,10 @@ h1 {
 
 .downpart {
     position: absolute;
-    right: 166px;
-    bottom: 75px;
+    right: 5px;
+    bottom: 4px;
     width: 332px;
-    height: 35px;
+    height: 36px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: gainsboro;
